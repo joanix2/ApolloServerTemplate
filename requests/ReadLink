@@ -1,0 +1,6 @@
+query ReadLink {
+  feed {
+    id
+    url
+  }
+}

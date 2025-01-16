@@ -1,0 +1,9 @@
+mutation Signup {
+  signup(email: "j.dussauld@orange.fr", password: "123", name: "Joan") {
+    token
+    user {
+      id
+      name
+    }
+  }
+}

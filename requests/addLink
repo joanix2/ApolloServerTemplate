@@ -1,0 +1,7 @@
+mutation AddLink {
+  post(url: "test2", description: "test description") {
+    url
+    description
+    id
+  }
+}

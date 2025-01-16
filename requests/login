@@ -1,0 +1,12 @@
+mutation Login {
+  login(email: "j.dussauld@orange.fr", password: "123") {
+    token
+    user {
+      email
+      links {
+        id
+        description
+      }
+    }
+  }
+}

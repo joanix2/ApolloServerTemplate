@@ -1,0 +1,10 @@
+query FeedByCurrentUserId {
+  feedByCurrentUserId {
+    id
+    description
+    url
+    postedBy {
+      name
+    }
+  }
+}
