@@ -8,8 +8,8 @@ services:
     ports:
       - "4000:4000"
     environment:
-      NODE_ENV: production
-      APP_SECRET: "your-app-secret"
+      # NODE_ENV: production
+      APP_SECRET: "eric-tech-graphql-tutorial"
       DATABASE_URL: "postgresql://prisma:prisma@postgres:5432/mydb"
     depends_on:
       - postgres

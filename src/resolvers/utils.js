@@ -1,9 +1,24 @@
 const jwt = require("jsonwebtoken");
-const APP_SECRET = "eric-tech-graphql-tutorial"; // Secret key for signing tokens
+
+// Access environment variables using process.env
+const APP_SECRET = process.env.APP_SECRET;
+
+if (!APP_SECRET) {
+  throw new Error("APP_SECRET environment variable is not defined!");
+}
 
 // Function to verify and decode the JWT token
 function getTokenPayload(token) {
-  return jwt.verify(token, APP_SECRET); // Verifies the token using the APP_SECRET
+  try {
+    return jwt.verify(token, APP_SECRET);
+  } catch (err) {
+    if (err.name === "TokenExpiredError") {
+      throw new Error("Token has expired");
+    } else if (err.name === "JsonWebTokenError") {
+      throw new Error("Invalid token");
+    }
+    throw new Error("Token verification failed !");
+  }
 }
 
 // Function to retrieve the user ID from the request or authorization token
